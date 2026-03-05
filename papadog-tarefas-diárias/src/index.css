@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --color-papadog-green: #00A859;
+  --color-papadog-green-dark: #007D43;
+  --color-papadog-green-light: #E6F6EE;
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-slate-900 transition-colors duration-300;
+  }
+  
+  .dark body {
+    @apply bg-slate-950 text-slate-100;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm rounded-2xl;
+  }
+  
+  .dark .glass-card {
+    @apply bg-slate-900/80 border-slate-800 shadow-none;
+  }
+  
+  .btn-primary {
+    @apply bg-papadog-green hover:bg-papadog-green-dark text-white font-medium py-2 px-4 rounded-xl transition-all active:scale-95 flex items-center justify-center gap-2;
+  }
+  
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-slate-500 hover:bg-papadog-green-light hover:text-papadog-green;
+  }
+  
+  .dark .sidebar-item {
+    @apply text-slate-400 hover:bg-papadog-green/10 hover:text-papadog-green;
+  }
+  
+  .sidebar-item.active {
+    @apply bg-papadog-green text-white shadow-lg shadow-papadog-green/20;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-slate-700;
+}
